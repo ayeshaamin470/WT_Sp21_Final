@@ -1,96 +1,46 @@
+
 <?php
-//login.php
-
-include("database_connection.php");
-
-if(isset($_COOKIE["type"]))
-{
- header("location:index.php");
-}
-
-$message = '';
-
-if(isset($_POST["login"]))
-{
- if(empty($_POST["user_email"]) || empty($_POST["user_password"]))
- {
-  $message = "<div class='alert alert-danger'>Both Fields are required</div>";
- }
- else
- {
-  $query = "
-  SELECT * FROM user_details 
-  WHERE user_email = :user_email
-  ";
-  $statement = $connect->prepare($query);
-  $statement->execute(
-   array(
-    'user_email' => $_POST["user_email"]
-   )
-  );
-  $count = $statement->rowCount();
-  if($count > 0)
-  {
-   $result = $statement->fetchAll();
-   foreach($result as $row)
-   {
-    if(password_verify($_POST["user_password"], $row["user_password"]))
-    {
-     setcookie("type", $row["user_type"], time()+3600);
-     header("location:index.php");
-    }
-    else
-    {
-     $message = '<div class="alert alert-danger">Wrong Password</div>';
-    }
-   }
-  }
-  else
-  {
-   $message = "<div class='alert alert-danger'>Wrong Email Address</div>";
-  }
- }
-}
-
-
+	if ($_SERVER["REQUEST_METHOD"]=="POST") {
+		$username=$_POST["username"];
+		$password=$_POST["password"];
+		if ($username == "aye@edu" && $password=="12345678") {
+			setcookie("username",$username,time()+20);
+			header("Location: dashbord.php");
+		}
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
- <head>
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- </head>
- <body>
-  <br />
-  <div class="container">
-   <h2 align="center">LOG IN</h2>
-   <br />
-   <div class="panel panel-default">
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="" method="post">
+		<table>
+				<tr>
+					<img src="login.jpg" width="300" height="150">
+					<td><input type="email" placeholder="username" name="username"> 
+					</span></td>
 
-    <div class="panel-heading">Login</div>
-    <div class="panel-body">
-     <span><?php echo $message; ?></span>
-     <form method="post">
-      <div class="form-group">
-       <label>User Email</label>
-       <input type="text" name="user_email" id="user_email" class="form-control" />
-      </div>
-      <div class="form-group">
-       <label>Password</label>
-       <input type="password" name="user_password" id="user_password" class="form-control" />
-      </div>
-      <div class="form-group">
-       <input type="submit" name="login" id="login" class="btn btn-info" value="Login" />
-      </div>
-     </form>
-    </div>
-   </div>
-   <br />
-   <p>	Welcome - ayesha470@gmail.com</p>
-   
-  </div>
- </body>
+				</tr>
+				<tr>
+					<td><input type="password" placeholder="password" name="password">
+					</span></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input type="submit" value="Log in"></td>
+				</tr>
+				
+     <tr><td> <input type="checkbox" checked="checked" name="remember"> Remember me</td></tr>
+
+			</table>
+	</form>
+
+
+      
+    
+    
+</body>
 </html>
