@@ -2,7 +2,7 @@
 if (isset($_POST['update']))   {
         $name=$_POST["name"];
 		$id=$_POST["id"];
-		$search=$_COOKIE['Csearchck'];
+		$search=$_GET['id'];
 		$p=$_POST["p"];
 		$d=$_POST["subject"];
 		$server="localhost";

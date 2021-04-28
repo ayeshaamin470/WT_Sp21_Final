@@ -39,11 +39,12 @@
             else{
                 $sub=$_POST["subject"];
             }
-	 if(empty($_POST["p"])||empty($_POST["fname"])||empty($_POST["email"])||empty($_POST["subject"])){
+			if(empty($_POST["p"])||empty($_POST["fname"])||empty($_POST["email"])||empty($_POST["subject"])){
 		 echo "Fill all the forms";
 	 }
+	 
 	 else{
-		 $name=$_POST["fname"];
+		$name=$_POST["fname"];
 		$email=$_POST["email"];
 		$p=$_POST["p"];
 		$subject=$_POST["subject"];

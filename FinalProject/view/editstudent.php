@@ -1,22 +1,11 @@
-<?php
-if (isset($_POST['go'])){
-	$sname=$_POST["sname"];
-	
-setcookie('searchck', $sname, time() + (86400 * 30), "", "", false);
-//header("Location: edit.php");
-}
-?>
+
 <?php
 
 include('../control/editstudentDB.php');
 ?>
 <fieldset>
-<legend><h1>*</h1></legend>
-<form action="" method='post'>
-<h1>Which user you want to edit?(insert username)</h1><br>
-<input type="text" name='sname'>
-<input name='go'type="submit" value="go">
-</form>
+<legend><h1>Edit*</h1></legend>
+
 <?php
      $server="localhost";
 	    $user="root";
@@ -30,7 +19,7 @@ include('../control/editstudentDB.php');
 		
 
     //$uname=$_GET["uname"];
-$searchu=$_COOKIE['searchck'];
+$searchu=$_GET['id'];
     $sql = "SELECT * FROM student WHERE ID = '$searchu'";
     $result = mysqli_query($conn, $sql);
 
@@ -69,10 +58,11 @@ $searchu=$_COOKIE['searchck'];
 	  </tr>
 	  
 	  <tr>
-	  <td><a href="http://localhost/froms/view/showstudent.php">Go back</a></td>
+	  <td><a href="http://localhost/FinalProject/view/showstudent.php">Go back</a></td>
 	  </tr>
 	  
 	  </table>
+	  
     </form>
 
 </body>

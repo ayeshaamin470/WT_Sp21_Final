@@ -11,7 +11,7 @@
 	   $sql = "DELETE FROM teacher WHERE TID = '$id'";
     $result = mysqli_query($conn, $sql);
      
-header("Location:http://localhost/froms/view/showteacher.php");
+header("Location:http://localhost/FinalProject/view/showteacher.php");
     //$query = "DELETE FROM student WHERE ID = '{$id}'";
     //$result = mysqli_query($conn, $sql);
 		// $result = mysqli_query($conn, $query);

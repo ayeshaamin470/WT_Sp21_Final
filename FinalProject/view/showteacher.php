@@ -43,6 +43,8 @@ font-size: 20px;}
 <th> Course</th>
 <th> Department</th>
 <th> Delete</th>
+<th> Edit</th>
+
 </tr>
 
 
@@ -57,6 +59,8 @@ font-size: 20px;}
                 <td><?php echo $row['department']; ?></td>
 			  
 			<td><a href='../control/deleteteacherDB.php?id=<?php echo $row['tid']; ?>'>Delete</a></td>
+			<td><a href='editteacher.php?id=<?php echo $row['tid']; ?>'>Edit</a></td>
+
 			
                 
 		 
@@ -67,10 +71,13 @@ font-size: 20px;}
 <?php
 	  }
 ?>
+
 </table>
-<br>
-<a href="http://localhost/froms/view/addteacher.php" class="button">Add New +</a><br>
-<a href="http://localhost/froms/view/editteacher.php" class="button">Edit</a>
+
+<div class="left">
+		<a href="http://localhost/FinalProject/amain.php">Go back</a><div><br>
+<a href="http://localhost/FinalProject/view/addteacher.php" class="button">Add New +</a><br>
+<a href="http://localhost/FinalProject/view/editteacher.php" class="button">Edit</a>
 </h1>
 </body>
 </html>

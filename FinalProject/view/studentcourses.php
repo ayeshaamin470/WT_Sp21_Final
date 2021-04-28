@@ -5,14 +5,14 @@ body {
 }
 
 h1{
-		padding-top: 10px;
-  padding-right: 60px;
-  padding-bottom: 50px;
-  padding-left: 80px;
+		padding-top: 25px;
+  padding-right: 90px;
+  padding-bottom: 70px;
+  padding-left: 100px;
   background: White;
   background-clip: padding-box;
 	position: absolute;
-  left: 450px;
+  left: 430px;
   top: 86px;
 font-size: 20px;}
 </style>
@@ -38,13 +38,13 @@ font-size: 20px;}
 	  ?>
 	  <h1><p><u> Offered Courses:</u></p>
 <table border="1" style="border-collapse:collapse;">
+
 <tr>
 <th> Name</th>
 <th> CID</th>
 <th> price</th>
 <th> description</th>
-<th> Delete</th>
-<th> Edit</th>
+<th> Enroll</th>
 
 </tr>
 
@@ -57,27 +57,25 @@ font-size: 20px;}
                 <td><?php echo $row['CID']; ?></td>
                 <td><?php echo $row['price']; ?></td>
                 <td><?php echo $row['description']; ?></td>
+				<td><a href='../control/enroll.php?id=<?php echo $row['CID']; ?>'>Enroll</a></td>
 			  
-			<td><a href='../control/deletecourseDB.php?id=<?php echo $row['CID']; ?>'>Delete</a></td>
-			<td><a href='editcourse.php?id=<?php echo $row['CID']; ?>'>Edit</a></td>
+		
 			
                 
 		 
 		
 	
 	  
-		<tr>
+		</tr>
+		
 <?php
 	  }
 ?>
 
 
 </table>
-
-		<a href="http://localhost/FinalProject/amain.php">Go back</a><br>
-<br>
-<a href="http://localhost/FinalProject/view/addcourse.php" class="button">Add New +</a><br>
-<a href="http://localhost/FinalProject/view/editcourse.php" class="button">Edit</a>
+<div class="left">
+		<a href="http://localhost/FinalProject/smain.php">Go back</a><div>
 </h1>
 </body>
 </html>

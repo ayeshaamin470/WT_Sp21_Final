@@ -1,24 +1,10 @@
-<?php
-if (isset($_POST['go'])){
-	$sname=$_POST["sname"];
-	
-setcookie('Csearchck', $sname, time() + (86400 * 30), "", "", false);
-//header("Location: edit.php");
-}
-?>
+
 <?php
 
 include('../control/editcourseDB.php');
 ?>
 
-<form action="" method='post'>
-<fieldset>
-<legend><h1>*</h1></legend>
-	<table>
-<h1>Which course you want to edit?(insert ID)</h1><br>
-<input type="text" name='sname'>
-<input name='go'type="submit" value="go">
-</form>
+
 <?php
     $server="localhost";
 	    $user="root";
@@ -30,10 +16,10 @@ include('../control/editcourseDB.php');
         $cp="";
 	    $cd= "";;
 		
-
+    $id = $_GET['id'];
     //$uname=$_GET["uname"];
-	$searchu=$_COOKIE['Csearchck'];
-    $sql = "SELECT * FROM course WHERE CID = '$searchu'";
+	//$searchu=$_COOKIE['Csearchck'];
+    $sql = "SELECT * FROM course WHERE CID = '$id'";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0)  {
@@ -73,7 +59,7 @@ include('../control/editcourseDB.php');
 	  </tr>
 	  
 	  <tr>
-	  <td><a href="http://localhost/froms/view/showcourse.php">Go back</a></td>
+	  <td><a href="http://localhost/FinalProject/view/showcourse.php">Go back</a></td>
 	  </tr>
 	  
 	  </table>

@@ -7,25 +7,25 @@
 	
 	
 	 $conn = mysqli_connect($server,$user,$pass,$db);
-     $query="select * from contact";
+     $query="select * from enroll";
 	 $result = mysqli_query($conn, $query);
 		
 ?> 
 <center><table border="1" style="border-collapse:collapse;">
 <tr>
-<th> name</th>
-<th> email</th>
-<th> phone number</th>
-<th> subject</th>
+<th> StudentName</th>
+<th> StudentID</th>
+<th> CourseID</th>
+<th> CourseName</th>
 </tr>
 <?php
       while($row = mysqli_fetch_assoc($result)){
 			echo"<tr>";
-			echo"<td>".$row["Name"]."</td>";
+			echo"<td>".$row["studentName"]."</td>";
 		
-			echo"<td>".$row["Email"]."</td>";
-			echo"<td>".$row["Phone_no"]."</td>";
-			echo"<td>".$row["Subject"]."</td>";
+			echo"<td>".$row["studentID"]."</td>";
+			echo"<td>".$row["courseID"]."</td>";
+			echo"<td>".$row["courseName"]."</td>";
 				
 	  echo"</tr>";}
 	  
